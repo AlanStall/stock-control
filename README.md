@@ -1,0 +1,3 @@
+Stock Control – Controle de Estoque
+Sistema de controle de estoque feito em Ruby On Rails no qual o usuário pode controlar a quantidade de produtos do seu estoque. Pode incluir e editar o nome, descrição, quantidade ou preço. Pode também incluir, editar ou excluir em qualquer momento um produto ou departamento. Os produtos têm seus determinados departamentos e vice-versa. O design da aplicação foi feito com o Bootstrap. 
+Aplicação aprendida pelo curso da Alura, onde eu inclui a autenticação com o Devise (for Rails based on Warden - https://github.com/heartcombo/devise), e o usuário precisa apenas criar um cadastro com e-mail e senha, e então, por meio destes, acessar o sistema. 

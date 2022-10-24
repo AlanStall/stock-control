@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Controle do Estoque</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <p>Usuário logado:</p><% if current_user %>
+      <P><%= current_user.email %></P>
+      <p class="notice" style="background: rgb(165, 222, 230); padding: 15px; border-radius: 5px"><%= "Logado" %></p>
+    <%= link_to 'Sair do Controle de Estoque', destroy_user_session_path, method: :delete %>
+    <% else %>      
+      <p class="alert" style="background: rgb(248, 105, 97); color:white"><%= "Ninguém logado" %></p>
+      <hr>
+      <%= link_to 'Entrar no Controle de Estoque, conforme abaixo:', new_user_session_path %>
+    <% end %>
+    
+    <hr>
+
+    <div>
+      <%= nav_bar brand: "Controle do Estoque", brand_link: root_url do %>
+        <%= menu_group do %>
+          <%= menu_item "Criar novo produto", new_produto_path %>
+          <%= menu_item "Departamentos", departamentos_path %>
+        <% end %>
+      </div>
+      
+      <%= form_tag busca_produto_path, method: :get, class:"navbar-form navbar-right" do %>
+        <div class="form-group">
+          <%= text_field_tag :nome, @nome, class:"form-control" %>
+          <%= button_to "Buscar", nil, class:"btn btn-primary" %>
+        </div>
+      <% end %>  
+    <div class="container position-relative top-0">
+      <%= yield %>
+    </div>
+  </body>
+</html>
+<% end %>
+
